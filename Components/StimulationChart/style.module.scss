@@ -1,0 +1,164 @@
+@import '/src/Styles/Variables';
+@import '/src/Styles/Mixins';
+
+.stimulation-wrap{
+    width: 100%;
+    text-align: center;
+    padding-top: 200px;
+    background-color: transparent;
+    
+    @include Breakpoint (xxl){
+        padding-top: 175px;
+    }
+    @include Breakpoint (xl){
+        padding-top: 120px;
+    }
+    @include Breakpoint (lg){
+        padding-top: 100px;
+    }
+    @include Breakpoint (md){
+        padding-top: 75px;
+    }
+    @include Breakpoint (sm){
+        padding-top: 65px;
+    }
+
+    .green-text{
+        color: $Green-color !important;
+    }
+    .white-text{
+        color: white;
+    }
+    .table-stimulation-wrap{
+        overflow: auto;
+
+        &::-webkit-scrollbar{
+            height: 5px;
+            background-color: $Grey-color;
+            border-radius: 10px;
+
+            &-thumb{
+                height: 5px;
+                background-color: $Primary-color;
+                border-radius: 10px; 
+            }
+        }
+
+        .table-stimulation{
+            text-align: center;
+
+            @include Breakpoint(xs){
+                min-width: 550px;
+
+            }
+
+            td,th{
+                font-size: 55px;
+                line-height: normal;
+                font-weight: 700;
+                padding-top: 11px;
+                padding-bottom: 3px;
+                background: transparent;
+                color: $White-color;
+
+                @include Breakpoint(xxl){
+                    font-size: 45px;
+                }
+                @include Breakpoint(xl){
+                    font-size: 35px;
+                }
+                @include Breakpoint(lg){
+                    font-size: 30px;
+                }
+                @include Breakpoint(md){
+                    font-size: 25px;
+                }
+                @include Breakpoint(sm){
+                    font-size: 18px;
+                }
+            }
+            thead{
+                th{
+                    color: $Pink-color;
+                    &:nth-child(1){
+                        width: 317px;
+                    }
+                    &:nth-child(2){
+                        width: 200px;
+                    }
+                    &:nth-child(3){
+                        width: 497px;
+                    }
+                    &:nth-child(4){
+                        width: 491px;
+                    }
+                }
+            }
+        }
+    }
+    .pink-text{
+        color: $Pink-color;
+    }
+.zone{
+    font-size: 64px;
+    margin-bottom: 25px;
+
+}
+    h3{
+        font-size: 101px;
+        line-height: 1.5;
+        color: $White-color;
+        margin-bottom: 40px;
+
+        @include Breakpoint (xxl){
+            font-size: 85px;
+            margin-bottom: 25px;
+        }
+        @include Breakpoint(xl){
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        @include Breakpoint(lg){
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        @include Breakpoint(md){
+            font-size: 52px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        @include Breakpoint(sm){
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
+        @include Breakpoint(xs){
+            font-size: 37px;
+        }
+    }
+    h6{
+        font-size: 62px;
+        line-height: 1.5;
+        color: $White-color;
+        margin-bottom: 0;
+
+        @include Breakpoint(xxl){
+            font-size: 45px;
+        }
+        @include Breakpoint(xxl){
+            font-size: 35px;
+        }
+        @include Breakpoint(lg){
+            font-size: 30px;
+        }
+        @include Breakpoint(md){
+            font-size: 25px;
+            line-height: 1.3;
+        }
+        @include Breakpoint(sm){
+            font-size: 23px;
+        }
+        @include Breakpoint(xs){
+            font-size: 18px;
+        }
+    }
+}

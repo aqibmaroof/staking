@@ -1,0 +1,50 @@
+name: Xana-Web-Next-PM2-Deployment/staking.xana.net
+
+on:
+  push:
+    branches:
+    - testnet
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚚 Get latest code Checkout
+      uses: actions/checkout@v3
+    #here will will set node version 14
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run dev:build
+
+    - name: 📂 Sync-files
+      uses: burnett01/rsync-deployments@4.1
+      with:
+        switches: -avzr --delete --exclude=".git" --exclude=".github"
+        path: "./"
+        remote_path: "/home/ubuntu/xana-web-next/"
+        remote_host: ${{ secrets.SERVER_IP  }}
+        remote_user: ${{ secrets.SERVER_USER  }}
+        remote_key: ${{ secrets.MY_LOCAL_PRI_KEY  }}
+        script: "sh reload-pm2.sh"
+
+    - name: Display status from deploy
+      run: echo "${{ steps.Sync-files.outputs.status }}"
+
+    - uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
+      env:
+        SLACK_CHANNEL: '#github-action'
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }} # required
+      if: always() # Pick up events even if the job fails or is canceled.

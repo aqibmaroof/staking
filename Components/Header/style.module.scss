@@ -1,0 +1,522 @@
+@import "../../src/Styles/Variables";
+
+.themeNav {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 0;
+  z-index: 999;
+  .heade-logo{
+    img{
+      max-width: 40px;
+    }
+  }
+
+  .container-fluid {
+    padding: 0;
+    padding: 0 20px;
+    position: relative;
+
+    @media (max-width: 991px) {
+      padding: 0 15px;
+    }
+
+    #outer-icons {
+      display: none;
+
+      @media (max-width: 991px) {
+        display: block;
+        position: absolute;
+        top: 3px;
+        right: 55px;
+        z-index: 999;
+      }
+      @media (max-width: 767px) {
+        top: 4px;
+        right: 55px;
+      }
+      @media (max-width: 575px) {
+        right: 52px;
+      }
+    }
+
+    .right-menu {
+      justify-content: flex-end;
+
+      .main-menu {
+        position: absolute;
+        left: 0;
+        right: 300px;
+        width: 827px;
+
+        @media (max-width: 1099px) {
+          width: 788px;
+        }
+
+        @media (max-width: 1390px) {
+          width: unset;
+          position: unset;
+          margin: 0;
+          margin-top: 57px;
+          right: 0px;
+          margin-left: 12vw;
+          margin-top: 75px;
+          height: calc(100% - 57px);
+          justify-content: unset;
+          align-items: flex-start;
+          padding-left: 0vw;
+          padding-top: 0px;
+
+          &::-webkit-scrollbar {
+            width: 3px;
+            background: #f1f1f1;
+            border-radius: 3px;
+          }
+          &::-webkit-scrollbar-thumb {
+            width: 3px;
+            background: $Primary-color;
+            border-radius: 3px;
+          }
+        }
+        @media (max-width: 1675px) {
+          width: unset;
+          position: unset;
+          margin: 0;
+          margin-top: 57px;
+          right: 0px;
+          margin-left: 94vw;
+          margin-top: 75px;
+          height: calc(100% - 57px);
+          justify-content: unset;
+          align-items: flex-start;
+          padding-left: 0vw;
+          padding-top: 0px;
+
+          &::-webkit-scrollbar {
+            width: 3px;
+            background: #f1f1f1;
+            border-radius: 3px;
+          }
+          &::-webkit-scrollbar-thumb {
+            width: 3px;
+            background: $Primary-color;
+            border-radius: 3px;
+          }
+        }
+        @media (max-width: 1200px) {
+          width: unset;
+          position: unset;
+          margin: 0;
+          margin-top: 57px;
+          right: 0px;
+          margin-left: 6vw;
+          margin-top: 75px;
+          height: calc(100% - 57px);
+          justify-content: unset;
+          align-items: flex-start;
+          padding-left: 0vw;
+          padding-top: 0px;
+
+          &::-webkit-scrollbar {
+            width: 3px;
+            background: #f1f1f1;
+            border-radius: 3px;
+          }
+          &::-webkit-scrollbar-thumb {
+            width: 3px;
+            background: $Primary-color;
+            border-radius: 3px;
+          }
+        }
+        @media (max-width: 991px) {
+          height: 80vh;
+          overflow-y: auto;
+          margin-top: 80px;
+        }
+        @media (max-width: 767px) {
+          padding-top: 0;
+          margin-top: 50px;
+        }
+        @media (max-width: 575px) {
+          padding-left: 0;
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    line-height: unset;
+
+    &:hover {
+      background: none;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: 0;
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+
+    span.wallet-adr {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 26px;
+      display: block;
+      background: $Dark_primary-color;
+      padding: 3px 10px;
+      margin: -3px 0px 0px 0px;
+      @include border-radius(30px);
+
+      // @media (max-width: 1665px) {
+      //   font-size: 22px;
+      // }
+      // @media (max-width: 1365px) {
+      //   font-size: 20px;
+      //   font-weight: 500;
+      // }
+      @media (max-width: 1365px) {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+    .btn-address {
+      padding: 10px 20px;
+      font-size: large;
+      background: $Dark_primary-color !important;
+      @include border-radius(30px);
+
+      b {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 26px;
+        display: block;
+
+        @media (max-width: 1365px) {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 23px;
+        }
+        @media (max-width: 1199px) {
+          font-size: 18px;
+          line-height: 20px;
+        }
+        @media (max-width: 991px) {
+          font-size: 16px;
+          line-height: 18px;
+        }
+        @media (max-width: 767px) {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+
+      @media (max-width: 991px) {
+        width: unset;
+        height: unset;
+      }
+    }
+
+    .navbar-toggler-icon {
+      @media (max-width: 575px) {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      position: relative;
+      z-index: 99;
+      padding: 0;
+    }
+  }
+
+  .navbar-collapse {
+    @media (max-width: 991px) {
+      background-color: $Black-color;
+      position: fixed;
+      top: 0;
+      right: -270px;
+      width: 250px;
+      height: 100vh;
+      z-index: 9;
+      transition: all ease 0.4s;
+    }
+    @media (max-width: 767px) {
+      padding: 20px 0;
+    }
+    @media (max-width: 575px) {
+      // width: 100%;
+      // right: -600px;
+      padding: 12px 0 17px;
+      transition: all ease 0.5s;
+    }
+  }
+  .navbar-collapse.show {
+    @media (max-width: 991px) {
+      right: 0;
+    }
+  }
+
+  .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+
+    svg {
+      height: 54px;
+      width: 54px;
+
+      @media (max-width: 1199px) {
+        height: 45px;
+        width: 45px;
+      }
+
+      @media (max-width: 991px) {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+  .navbar-nav {
+    @media (max-width: 991px) {
+      align-items: center;
+      margin-top: 35vh;
+    }
+    @media (max-width: 575px) {
+      margin-top: 28vh;
+    }
+
+    .show > .btn-success.dropdown-toggle {
+      background: transparent;
+    }
+    .dropdown {
+      @media (max-width: 991px) {
+        text-align: left;
+        transition: all linear 0.5s;
+      }
+      .dropdown-menu {
+        @media (max-width: 991px) {
+          opacity: 0;
+          visibility: hidden;
+          transition: all linear 0.5s;
+        }
+      }
+
+      &.show {
+        .dropdown-menu {
+          @media (max-width: 991px) {
+            opacity: 1;
+            visibility: visible;
+            transition: all linear 0.5s;
+            padding-bottom: 3px;
+            padding-top: 0;
+          }
+        }
+      }
+    }
+    .dropdown button::after {
+      vertical-align: 0;
+      border: none;
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(45deg);
+      margin: 0px 0 4px 7px;
+
+      // @media (max-width:991px){
+      //   vertical-align: 1px;
+      //   margin-left: 7px;
+      // }
+    }
+
+    .dropdown button:focus,
+    .dropdown button:focus-visible {
+      box-shadow: none;
+      background: transparent;
+      border-color: transparent;
+    }
+    .dropdown-menu {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      border-radius: 0;
+      border: none;
+      padding: 0;
+      top: 56px;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 130px;
+
+      @media (max-width: 1365px) {
+        top: 50px;
+      }
+      @media (max-width: 1199px) {
+        top: 46px;
+      }
+
+      @media (max-width: 991px) {
+        transform: none;
+        transform: translateY(-7px);
+        // background: $Primary-color;
+        transition: all linear 0.4s;
+      }
+      @media (max-width: 767px) {
+        transform: translateY(-8px);
+      }
+
+      .dropdown-item {
+        font-family: "SF Pro Display", sans-serif;
+        font-size: 14px;
+        color: $White-color;
+        padding: 8px 15px;
+
+        @media (max-width: 991px) {
+          text-align: left;
+          padding: 5px 12px 3px;
+        }
+
+        &:hover {
+          background-color: #444;
+          color: $Primary-color;
+
+          @media (max-width: 991px) {
+            color: $White-color;
+          }
+        }
+
+        &.active {
+          background: #444;
+        }
+      }
+    }
+
+    .nav-link,
+    .dropdown button {
+      font-family: "SF Pro Display", sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.1;
+      padding: 15px 30px;
+      color: $White-color;
+      position: relative;
+      text-transform: capitalize;
+
+      &:hover {
+        color: $Primary-color;
+
+        &::after {
+          border-color: $Primary-color;
+        }
+      }
+
+      @media (max-width: 1365px) {
+        padding: 10px 15px;
+        font-size: 13px;
+      }
+      @media (max-width: 991px) {
+        margin-bottom: 10px;
+        padding: 0;
+        padding-bottom: 3px;
+        font-weight: 500;
+        font-size: 15px;
+      }
+    }
+
+    .nav-link.active {
+      color: $Primary-color;
+    }
+  }
+
+  .walletbutton-wrapper.navbar-nav {
+    @media (max-width: 991px) {
+      margin-top: 0;
+      position: absolute;
+      top: 12px;
+      right: 65px;
+      z-index: 5;
+    }
+    @media (max-width: 767px) {
+      top: 11px;
+      right: 60px;
+      align-items: flex-end;
+    }
+    @media (max-width: 575px) {
+      top: 8px;
+      left: unset;
+      right: 55px;
+      align-items: flex-end;
+    }
+
+    &.inside-icons {
+      @media (max-width: 991px) {
+        display: none;
+      }
+    }
+  }
+
+  .walletAddress {
+    padding: 0;
+    background: transparent !important;
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    &.addNewIcon {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.8rem;
+      img{
+        width: 32px;
+        height: 32px;
+      }
+
+      @media (max-width: 1365px) {
+        padding-right: 0;
+      }
+      @media (max-width: 575px) {
+        width: unset;
+      }
+
+      img.avaxLogo {
+        width: 28px;
+        margin-right: 10px;
+
+        @media (max-width: 1199px) {
+          width: 26px;
+        }
+      }
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
+
+      path {
+        stroke: $White-color;
+      }
+
+      @media (max-width: 1199px) {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    @media (max-width: 1366px) {
+      font-size: 16px;
+      padding: 0 10px;
+    }
+    // @media (max-width: 991px) {
+    //   font-size: 16px;
+    //   // padding: 5px 15px;
+    // }
+    // @media (max-width: 767px) {
+    //   padding: 3px 12px;
+    // }
+  }
+}

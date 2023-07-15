@@ -1,0 +1,196 @@
+// How it work work-section
+.work-section {
+  padding-bottom: 130px;
+  padding-top: 125px;
+  margin-bottom: 0px;
+  @media (max-width: 1665px) {
+    padding-top: 55px;
+  }
+
+  @media (max-width: 1365px) {
+    padding-bottom: 38px;
+    padding-top: 38px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .homepage-title {
+    h1 {
+      font-size: 95px;
+      line-height: 1;
+      margin-bottom: 75px;
+
+      @media (max-width: 1665px) {
+        font-size: 72px;
+        margin-bottom: 35px;
+      }
+      @media (max-width: 1365px) {
+        font-size: 65px;
+        margin-bottom: 22px;
+      }
+      @media (max-width: 1199px) {
+        font-size: 55px;
+      }
+      @media (max-width: 991px) {
+        font-size: 45px;
+      }
+      @media (max-width: 767px) {
+        font-size: 35px;
+        margin-bottom: 12px;
+      }
+      @media (max-width: 575px) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .work-point {
+    margin: 0;
+    padding: 0;
+    padding-left: 25px;
+
+    @media (max-width: 1199px) {
+      padding-left: 20px;
+    }
+    @media (max-width: 991px) {
+      padding-left: 17px;
+    }
+    @media (max-width: 767px) {
+      padding-left: 15px;
+    }
+    @media (max-width: 575px) {
+      padding-left: 20px;
+    }
+
+    li {
+      font-size: 30px;
+      line-height: 45px;
+      margin-bottom: 30px;
+      color: $White-color;
+      font-family: "Arial", sans-serif;
+      @media (max-width: 1665px) {
+        font-size: 22px;
+        line-height: 36px;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .point {
+        display: block;
+        font-family: "Arial", sans-serif;
+      }
+
+      @media (max-width: 1365px) {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 27px;
+      }
+      @media (max-width: 1199px) {
+        margin-bottom: 22px;
+      }
+      @media (max-width: 991px) {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      @media (max-width: 767px) {
+        font-size: 18px;
+        line-height: 1.3;
+        margin-bottom: 15px;
+      }
+      @media (max-width: 575px) {
+        font-size: 16px;
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+    }
+    
+    .land-tbl-wr{
+      margin: 20px 0;
+      border:1px solid $Light-Primary-color;
+      max-width: 768px;
+      border-radius: 8px;
+
+      @media (max-width:1365px){
+        margin: 15px 0 20px;
+      }
+      @media (max-width:767px){
+        margin: 10px 0 20px;
+      }
+
+      .land-tbl{
+        margin-bottom: 0;
+
+        th,td{
+          font-family: Arial, Helvetica, sans-serif;
+          line-height: 1;
+          color: $White-color;
+          text-align: center;
+          border-right:1px solid $Light-Primary-color;
+width: 33%;
+          &:last-of-type{
+            border-right: 0;
+          }
+        }
+        tr{
+          border-bottom:1px solid $Light-Primary-color;
+
+        }
+
+        thead{
+          th{
+            font-size: 30px;
+            font-weight: 700;
+            padding: 17px 8px;
+            background: transparent;
+
+            @media (max-width:1365px){
+              font-size: 25px;
+              padding: 15px 8px;
+            }
+            @media (max-width:991px){
+              font-size: 22px;
+              padding: 12px 8px;
+            }
+            @media (max-width:575px){
+              font-size: 16px;
+              padding: 10px 8px;
+            }
+          }
+        }
+        tbody{
+          tr{
+            &:last-of-type{
+              border-bottom: none;
+
+              td{
+                border-bottom: 0;
+
+              }
+            }
+          }
+          td{
+            font-size: 28px;
+            padding: 13.5px 8px;
+            background: transparent;
+
+            @media (max-width:1365px){
+              font-size: 22px;
+              padding: 10px 8px;
+            }
+            @media (max-width:991px){
+              font-size: 18px;
+              padding: 8px;
+            }
+            @media (max-width:575px){
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

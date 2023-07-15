@@ -1,0 +1,1673 @@
+const XanaStakingContractMainnet = {
+  abi: [
+    {
+      type: "event",
+      name: "AppliedUnstake",
+      inputs: [
+        {
+          type: "address",
+          name: "staker",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeIndex",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeAmount",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "CampaignEdited",
+      inputs: [
+        {
+          type: "uint256",
+          name: "startTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "endTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "CampaignReward",
+      inputs: [
+        {
+          type: "uint256",
+          name: "campaignId",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "address",
+          name: "collection",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "from",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "to",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "address",
+          name: "user",
+          internalType: "address",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "CampaignStarted",
+      inputs: [
+        {
+          type: "uint256",
+          name: "rewardCount",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "startTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "endTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "Initialized",
+      inputs: [
+        {
+          type: "uint8",
+          name: "version",
+          internalType: "uint8",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "OwnershipTransferred",
+      inputs: [
+        {
+          type: "address",
+          name: "previousOwner",
+          internalType: "address",
+          indexed: true,
+        },
+        {
+          type: "address",
+          name: "newOwner",
+          internalType: "address",
+          indexed: true,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "Paused",
+      inputs: [
+        {
+          type: "address",
+          name: "account",
+          internalType: "address",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "RuffleJoined",
+      inputs: [
+        {
+          type: "address",
+          name: "user",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "campaignId",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "start",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "end",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "StakeEnd",
+      inputs: [
+        {
+          type: "address",
+          name: "staker",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeIndex",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeAmount",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "penalty",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "StakeStart",
+      inputs: [
+        {
+          type: "address",
+          name: "staker",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeIndex",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeAmount",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "Unpaused",
+      inputs: [
+        {
+          type: "address",
+          name: "account",
+          internalType: "address",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "appplyForUnstake",
+      inputs: [{ type: "uint256", name: "_stakeId", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "callback",
+      inputs: [
+        { type: "uint256[]", name: "ids", internalType: "uint256[]" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "claimOrEmergencyUnstak",
+      inputs: [{ type: "uint256", name: "_stakeId", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "claimStakingReward",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256[]", name: "tickets", internalType: "uint256[]" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "claimTaxBonus",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "editLootBox",
+      inputs: [
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "emergencyWithdraw",
+      inputs: [{ type: "address", name: "receiver", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "address[]", name: "", internalType: "address[]" }],
+      name: "getActiveStakers",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "tuple",
+          name: "",
+          internalType: "struct GlobalsAndUtils.ApplyUnstake",
+          components: [
+            { type: "uint256", name: "stakedAt", internalType: "uint256" },
+            { type: "uint256", name: "appliedAt", internalType: "uint256" },
+            { type: "uint256", name: "stakedAmount", internalType: "uint256" },
+          ],
+        },
+      ],
+      name: "getApplyUnStake",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "address", name: "collection", internalType: "address" },
+      ],
+      name: "getCampaignDetails",
+      inputs: [
+        { type: "uint256", name: "_campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "getClaimableTickets",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "getClaimableTickets",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "address", name: "user", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "uint256",
+          name: "stakerPenaltyBonus",
+          internalType: "uint256",
+        },
+      ],
+      name: "getClaimableToken",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "uint256", name: "ruffleTime", internalType: "uint256" },
+      ],
+      name: "getCurrentCampaignDetails",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+      name: "getGlobals",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "getIsClaimableOrEmergency",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256[]", name: "", internalType: "uint256[]" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+      name: "getRewardClaimable",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "tuple",
+          name: "",
+          internalType: "struct GlobalsAndUtils.Stake",
+          components: [
+            { type: "uint256", name: "stakedAt", internalType: "uint256" },
+            { type: "uint256", name: "stakedAmount", internalType: "uint256" },
+          ],
+        },
+      ],
+      name: "getStake",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "tuple",
+          name: "",
+          internalType: "struct GlobalsAndUtils.UnStake",
+          components: [
+            { type: "uint256", name: "stakedAt", internalType: "uint256" },
+            { type: "uint256", name: "appliedAt", internalType: "uint256" },
+            { type: "uint256", name: "unStakedAt", internalType: "uint256" },
+            { type: "uint256", name: "stakedAmount", internalType: "uint256" },
+            { type: "uint256", name: "penalty", internalType: "uint256" },
+          ],
+        },
+      ],
+      name: "getUnStake",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserAppliedIds",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserPenaltiesIds",
+      inputs: [{ type: "address", name: "user", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserStakesIds",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserUnStakesIds",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getWinningTickIds",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "initialize",
+      inputs: [{ type: "address", name: "_oracle", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "isRequested",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "isRewardOpen",
+      inputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "joinRuffle",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "joinRuffleUser",
+      inputs: [
+        { type: "address", name: "user", internalType: "address" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256", name: "totalEarned", internalType: "uint256" },
+        { type: "uint256", name: "start", internalType: "uint256" },
+        { type: "uint256", name: "end", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "address", name: "", internalType: "address" }],
+      name: "owner",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "pause",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "paused",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "penaltyAccumulated",
+      inputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "releasedAt", internalType: "uint256" },
+        { type: "uint256", name: "totalStake", internalType: "uint256" },
+        { type: "uint256", name: "userStake", internalType: "uint256" },
+        { type: "uint256", name: "totalPenalty", internalType: "uint256" },
+        { type: "uint256", name: "penaltyClaimed", internalType: "uint256" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+      name: "penaltyHistories",
+      inputs: [
+        { type: "address", name: "", internalType: "address" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "penaltyHistoryIds",
+      inputs: [
+        { type: "address", name: "", internalType: "address" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "perDayXTicketsUserClaimable",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "renounceOwnership",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "resetWinningTicketIds",
+      inputs: [
+        { type: "uint256", name: "_campaignId", internalType: "uint256" },
+        { type: "uint256", name: "end", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "rewardLootBox",
+      inputs: [
+        { type: "uint256", name: "end", internalType: "uint256" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "setCampaignDetails",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "address", name: "collection", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "setOracleAddress",
+      inputs: [{ type: "address", name: "_add", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "setRewardCanBeClaim",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "bool", name: "status", internalType: "bool" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "payable",
+      outputs: [],
+      name: "stakeXeta",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "startLootBox",
+      inputs: [
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "startLootBox",
+      inputs: [
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "address", name: "_awardCollection", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "ticketIdUsed",
+      inputs: [
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "totalPenaltiesClaimed",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "totalStakedAmount",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "transferOwnership",
+      inputs: [{ type: "address", name: "newOwner", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "unpaused",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "updateRewardCollection",
+      inputs: [
+        { type: "address", name: "_collection", internalType: "address" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "userClaimable",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "userClaimable",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "userStakedAmount",
+      inputs: [{ type: "address", name: "", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "start", internalType: "uint256" },
+        { type: "uint256", name: "end", internalType: "uint256" },
+      ],
+      name: "userXTicketRange",
+      inputs: [
+        { type: "address", name: "", internalType: "address" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "winningTixketIdExist",
+      inputs: [
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "withdrawPenaltyAmount",
+      inputs: [
+        { type: "uint256", name: "_amount", internalType: "uint256" },
+        { type: "address", name: "receiver", internalType: "address" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    { type: "receive", stateMutability: "payable" },
+  ],
+  address: "0xD69B6e7fA04305B00fb5BB8ba07F6067B9069E1b",
+};
+
+const XanaStakingContractTestnet = {
+  abi: [
+    {
+      type: "event",
+      name: "AppliedUnstake",
+      inputs: [
+        {
+          type: "address",
+          name: "staker",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeIndex",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeAmount",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "CampaignEdited",
+      inputs: [
+        {
+          type: "uint256",
+          name: "startTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "endTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "CampaignReward",
+      inputs: [
+        {
+          type: "uint256",
+          name: "campaignId",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "address",
+          name: "collection",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "from",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "to",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "address",
+          name: "user",
+          internalType: "address",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "CampaignStarted",
+      inputs: [
+        {
+          type: "uint256",
+          name: "rewardCount",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "startTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "endTime",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "Initialized",
+      inputs: [
+        {
+          type: "uint8",
+          name: "version",
+          internalType: "uint8",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "OwnershipTransferred",
+      inputs: [
+        {
+          type: "address",
+          name: "previousOwner",
+          internalType: "address",
+          indexed: true,
+        },
+        {
+          type: "address",
+          name: "newOwner",
+          internalType: "address",
+          indexed: true,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "Paused",
+      inputs: [
+        {
+          type: "address",
+          name: "account",
+          internalType: "address",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "RuffleJoined",
+      inputs: [
+        {
+          type: "address",
+          name: "user",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "campaignId",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "start",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "end",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "StakeEnd",
+      inputs: [
+        {
+          type: "address",
+          name: "staker",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeIndex",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeAmount",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "penalty",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "StakeStart",
+      inputs: [
+        {
+          type: "address",
+          name: "staker",
+          internalType: "address",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeIndex",
+          internalType: "uint256",
+          indexed: false,
+        },
+        {
+          type: "uint256",
+          name: "stakeAmount",
+          internalType: "uint256",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "event",
+      name: "Unpaused",
+      inputs: [
+        {
+          type: "address",
+          name: "account",
+          internalType: "address",
+          indexed: false,
+        },
+      ],
+      anonymous: false,
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "appplyForUnstake",
+      inputs: [{ type: "uint256", name: "_stakeId", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "callback",
+      inputs: [
+        { type: "uint256[]", name: "ids", internalType: "uint256[]" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
+      name: "campaignRewardsRoot",
+      inputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "claimOrEmergencyUnstak",
+      inputs: [{ type: "uint256", name: "_stakeId", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "claimStakingReward",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256[]", name: "tickets", internalType: "uint256[]" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "claimTaxBonus",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "editLootBox",
+      inputs: [
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "emergencyWithdraw",
+      inputs: [{ type: "address", name: "receiver", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "address[]", name: "", internalType: "address[]" }],
+      name: "getActiveStakers",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "tuple",
+          name: "",
+          internalType: "struct GlobalsAndUtils.ApplyUnstake",
+          components: [
+            { type: "uint256", name: "stakedAt", internalType: "uint256" },
+            { type: "uint256", name: "appliedAt", internalType: "uint256" },
+            { type: "uint256", name: "stakedAmount", internalType: "uint256" },
+          ],
+        },
+      ],
+      name: "getApplyUnStake",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "address", name: "collection", internalType: "address" },
+      ],
+      name: "getCampaignDetails",
+      inputs: [
+        { type: "uint256", name: "_campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "getClaimableTickets",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "getClaimableTickets",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "address", name: "user", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "uint256",
+          name: "stakerPenaltyBonus",
+          internalType: "uint256",
+        },
+      ],
+      name: "getClaimableToken",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "uint256", name: "ruffleTime", internalType: "uint256" },
+      ],
+      name: "getCurrentCampaignDetails",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+      name: "getGlobals",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "getIsClaimableOrEmergency",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256[]", name: "", internalType: "uint256[]" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+      name: "getRewardClaimable",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "tuple",
+          name: "",
+          internalType: "struct GlobalsAndUtils.Stake",
+          components: [
+            { type: "uint256", name: "stakedAt", internalType: "uint256" },
+            { type: "uint256", name: "stakedAmount", internalType: "uint256" },
+          ],
+        },
+      ],
+      name: "getStake",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "tuple",
+          name: "",
+          internalType: "struct GlobalsAndUtils.UnStake",
+          components: [
+            { type: "uint256", name: "stakedAt", internalType: "uint256" },
+            { type: "uint256", name: "appliedAt", internalType: "uint256" },
+            { type: "uint256", name: "unStakedAt", internalType: "uint256" },
+            { type: "uint256", name: "stakedAmount", internalType: "uint256" },
+            { type: "uint256", name: "penalty", internalType: "uint256" },
+          ],
+        },
+      ],
+      name: "getUnStake",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserAppliedIds",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserPenaltiesIds",
+      inputs: [{ type: "address", name: "user", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserStakesIds",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getUserUnStakesIds",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256[]", name: "", internalType: "uint256[]" }],
+      name: "getWinningTickIds",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "initialize",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "isRequested",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "isRewardOpen",
+      inputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "joinRuffle",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "joinRuffleUser",
+      inputs: [
+        { type: "address", name: "user", internalType: "address" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256", name: "totalEarned", internalType: "uint256" },
+        { type: "uint256", name: "start", internalType: "uint256" },
+        { type: "uint256", name: "end", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "address", name: "", internalType: "address" }],
+      name: "owner",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "pause",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "paused",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "penaltyAccumulated",
+      inputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "releasedAt", internalType: "uint256" },
+        { type: "uint256", name: "totalStake", internalType: "uint256" },
+        { type: "uint256", name: "userStake", internalType: "uint256" },
+        { type: "uint256", name: "totalPenalty", internalType: "uint256" },
+        { type: "uint256", name: "penaltyClaimed", internalType: "uint256" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+      name: "penaltyHistories",
+      inputs: [
+        { type: "address", name: "", internalType: "address" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "penaltyHistoryIds",
+      inputs: [
+        { type: "address", name: "", internalType: "address" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "newClaimedTickets", internalType: "uint256" },
+      ],
+      name: "perDayXTicketsUserClaimable",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "renounceOwnership",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "resetWinningTicketIds",
+      inputs: [
+        { type: "uint256", name: "_campaignId", internalType: "uint256" },
+        { type: "uint256", name: "end", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "rewardLootBox",
+      inputs: [
+        { type: "uint256", name: "end", internalType: "uint256" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "setCampaignDetails",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "address", name: "collection", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "setOracleAddress",
+      inputs: [{ type: "address", name: "_add", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "setRewardCanBeClaim",
+      inputs: [
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+        { type: "bool", name: "status", internalType: "bool" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "payable",
+      outputs: [],
+      name: "stakeXeta",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "startLootBox",
+      inputs: [
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "startLootBox",
+      inputs: [
+        { type: "uint256", name: "startTime", internalType: "uint256" },
+        { type: "uint256", name: "endTime", internalType: "uint256" },
+        { type: "uint256", name: "rewardCount", internalType: "uint256" },
+        { type: "address", name: "_awardCollection", internalType: "address" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "ticketIdUsed",
+      inputs: [
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "totalPenaltiesClaimed",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "totalStakedAmount",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "transferOwnership",
+      inputs: [{ type: "address", name: "newOwner", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "unpaused",
+      inputs: [],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "updateRewardCollection",
+      inputs: [
+        { type: "address", name: "_collection", internalType: "address" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "userClaimable",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "userClaimable",
+      inputs: [
+        { type: "address", name: "stakeOwner", internalType: "address" },
+        { type: "uint256", name: "stakeId", internalType: "uint256" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+      name: "userStakedAmount",
+      inputs: [{ type: "address", name: "", internalType: "address" }],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        { type: "uint256", name: "start", internalType: "uint256" },
+        { type: "uint256", name: "end", internalType: "uint256" },
+      ],
+      name: "userXTicketRange",
+      inputs: [
+        { type: "address", name: "", internalType: "address" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "view",
+      outputs: [{ type: "bool", name: "", internalType: "bool" }],
+      name: "winningTixketIdExist",
+      inputs: [
+        { type: "uint256", name: "", internalType: "uint256" },
+        { type: "uint256", name: "", internalType: "uint256" },
+      ],
+    },
+    {
+      type: "function",
+      stateMutability: "nonpayable",
+      outputs: [],
+      name: "withdrawPenaltyAmount",
+      inputs: [
+        { type: "uint256", name: "_amount", internalType: "uint256" },
+        { type: "address", name: "receiver", internalType: "address" },
+        { type: "uint256", name: "campaignId", internalType: "uint256" },
+      ],
+    },
+    { type: "receive", stateMutability: "payable" },
+  ],
+  address: "0x0E92b0AB828eB8080c00deC2Ffd834be2222548b",
+};
+
+export const XanaStakingContract =
+  process.env.NEXT_PUBLIC_NETWORK_TYPE === "testnet"
+    ? XanaStakingContractTestnet
+    : XanaStakingContractMainnet;

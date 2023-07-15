@@ -1,0 +1,282 @@
+@import "../../src/Styles/Variables";
+@import "../../src/Styles/Mixins";
+
+.modalClosebtn {
+  position: fixed;
+  top: 29px;
+  right: 25px;
+  padding: 0;
+  width: 15px;
+  height: 15px;
+  background: url("https://ik.imagekit.io/xanalia/xana/icon.svg");
+  background-repeat: no-repeat;
+  transform: scale(0.7);
+  opacity: 1;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  @media (max-width: 1665px) {
+    top: 22px;
+    right: 20px;
+  }
+  @media (max-width: 575px) {
+    top: 20px;
+    right: 15px;
+  }
+}
+
+.disconnect-modal {
+  .modal-dialog {
+    width: 412px;
+    margin: 0 auto;
+
+    @media (max-width: 1665px) {
+      width: 385px;
+    }
+    @media (max-width: 991px) {
+      width: 350px;
+    }
+    @media (max-width: 575px) {
+      width: 285px;
+    }
+
+    .modal-content {
+      width: 100%;
+      @include border-radius(16px);
+
+      @media (max-width: 991px) {
+        @include border-radius(12px);
+      }
+      @media (max-width: 575px) {
+        @include border-radius(12px);
+      }
+
+      .modal-header {
+        padding: 25px 20px 21px;
+        position: relative;
+        justify-content: center;
+
+        @media (max-width: 1665px) {
+          padding: 20px 15px 17px;
+        }
+        @media (max-width: 575px) {
+          padding: 18px 12px 15px;
+        }
+
+        .title {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 20px;
+          color: $Black-color;
+          margin-bottom: 0;
+          text-align: center;
+          text-transform: capitalize;
+
+          @media (max-width: 1665px) {
+            font-size: 16px;
+            line-height: 21px;
+          }
+          @media (max-width: 575px) {
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+        button {
+          position: fixed;
+          top: 36px;
+          right: 27px;
+          padding: 0;
+          width: 15px;
+          height: 15px;
+          background: url("https://ik.imagekit.io/xanalia/xana/icon.svg");
+          background-repeat: no-repeat;
+          transform: scale(0.7);
+          opacity: 1;
+
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+
+          @media (max-width: 1665px) {
+            top: 30px;
+            right: 22px;
+          }
+          @media (max-width: 575px) {
+            top: 27px;
+            right: 20px;
+          }
+        }
+      }
+      .modal-body {
+        padding: 27px 26px 29px;
+
+        @media (max-width: 1665px) {
+          padding: 20px 20px 22px;
+        }
+        @media (max-width: 575px) {
+          padding: 15px 12px 17px;
+        }
+
+        .adr-wrp {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 3px;
+
+          .adr-text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 18px;
+            color: $Black-color;
+            margin-bottom: 0;
+            word-break: break-all;
+            width: 200px;
+            text-transform: uppercase;
+
+            @media (max-width: 991px) {
+              font-size: 14px;
+              line-height: 17px;
+              width: 150px;
+            }
+            @media (max-width: 575px) {
+              font-size: 13px;
+              line-height: 17px;
+              width: 135px;
+            }
+          }
+          .adr-copy-wrp {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            user-select: none;
+
+            &:hover .adr-copy {
+              text-decoration: underline;
+              color: $Lighter-Primary-color;
+            }
+
+            .adr-copy {
+              margin-right: 13px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 19px;
+              color: $Primary-color;
+              margin-bottom: 0;
+
+              @media (max-width: 991px) {
+                font-size: 14px;
+                line-height: 17px;
+                margin-right: 10px;
+              }
+              @media (max-width: 575px) {
+                font-size: 13px;
+                line-height: 17px;
+                margin-right: 7px;
+              }
+            }
+            .copy-icon {
+              svg {
+                width: 25px;
+                height: 25px;
+
+                @media (max-width: 991px) {
+                  width: 20px;
+                  height: 20px;
+                }
+                @media (max-width: 575px) {
+                  width: 17px;
+                  height: 17px;
+                }
+              }
+            }
+          }
+        }
+
+        .bsc-scan {
+          margin-bottom: 26px;
+          display: inline-block;
+          cursor: pointer;
+
+          &:hover .bsc-scan-text {
+            text-decoration: underline;
+            color: $Lighter-Primary-color;
+          }
+
+          @media (max-width: 1665px) {
+            margin-bottom: 20px;
+          }
+          @media (max-width: 575px) {
+            margin-bottom: 17px;
+          }
+
+          .bsc-scan-text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 18px;
+            font-weight: 400;
+            color: $Primary-color;
+            display: inline-block;
+            transition: all ease 0.3s;
+
+            @media (max-width: 991px) {
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+            margin-left: 2px;
+
+            @media (max-width: 991px) {
+              width: 15px;
+              height: 15px;
+              margin-top: 3px;
+            }
+          }
+        }
+
+        .disconnect-btn {
+          width: 100%;
+          border-radius: 3px;
+          padding: 17px 32px 15px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: $White-color;
+          background: $Primary-color;
+          border: none;
+          transition: all ease 0.3s;
+
+          &:hover {
+            background-color: $Lighter-Primary-color;
+          }
+
+          @media (max-width: 1665px) {
+            padding: 13px 25px 10px;
+            font-size: 16px;
+          }
+          @media (max-width: 575px) {
+            border-radius: 1px;
+            padding: 10px 12px 7px;
+            font-size: 14px;
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}

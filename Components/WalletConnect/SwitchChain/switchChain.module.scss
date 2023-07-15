@@ -1,0 +1,151 @@
+@import "../../../src/Styles/Variables";
+@import "../../../src/Styles/Mixins";
+
+.switchNetwork_box-wrp {
+  display: flex;
+  justify-content: center;
+}
+.switchNetwork {
+  &_dialog {
+    max-width: 390px !important;
+    & > div {
+      border-radius: 13px !important;
+      padding: 23px 33px 35px;
+      @media (max-width: 991px) {
+        padding: 23px 33px 25px;
+      }
+      @media (max-width: 575px) {
+        padding: 23px;
+      }
+    }
+    @media (max-width: 575px) {
+      width: 80%;
+      max-width: 500px;
+      min-width: 310px;
+    }
+  }
+
+  &_header {
+    h4 {
+      font-size: 18px;
+      line-height: 21px;
+      color: $Black-color;
+      margin-bottom: 0;
+      font-family: Arial;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+    span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $Black-color;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+  &_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    @media (max-width: 767px) {
+      gap: 10px;
+    }
+    @media (max-width: 575px) {
+      gap: 5px;
+    }
+  }
+  &_items {
+    width: 126px;
+    height: 110px;
+    display: flex;
+    align-items: flex-start;
+  }
+  &_ico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    background: $White-color;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2280e1;
+    border-radius: 8px;
+    transition: 0.4s;
+    &[class*="focus"],
+    &:hover,
+    &:focus {
+      background-color: rgb(86, 187, 248);
+      border-color: rgb(86, 187, 248);
+    }
+    .checked {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 16px;
+      height: 16px;
+      background: $White-color;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+    > p {
+      font-size: 17px;
+      line-height: 20px;
+      font-weight: 700;
+      color: $Black-color;
+      font-family: Arial;
+      margin-bottom: 0;
+      @media (max-width: 1199px) {
+        font-size: 15px;
+      }
+    }
+
+    &[class*="active"],
+    &:active {
+      // background-color: rgb(86, 187, 248);
+      background: linear-gradient(180deg, #00c5ff 0%, #0092ff 100%);
+      border-color: rgb(86, 187, 248);
+      .checked {
+        opacity: 1;
+      }
+      p {
+        color: $White-color;
+      }
+    }
+    // &[class*='active'] {
+    //     position: relative;
+    // }
+
+    > img {
+      width: 43px;
+      height: 43px;
+      margin-bottom: 10px;
+    }
+  }
+  &_error {
+    color: #ff0125;
+    display: block;
+    font-size: 14px;
+    line-height: 18.62px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: Arial;
+    @media (max-width: 575px) {
+      font-size: 12px;
+      line-height: 16.62px;
+      margin-bottom: 12px;
+    }
+  }
+}

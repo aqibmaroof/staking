@@ -1,0 +1,123 @@
+@import "./Variables";
+
+// Offline Font
+//  Bold
+// @font-face {
+//   font-family: "Bebas-neue-bold";
+//   font-style: normal;
+//   font-weight: normal;
+//   src: local("../../public/bebas-neue/BebasNeueBold.woff"),
+//     url("../../public/bebas-neue/BebasNeueBold.woff") format("woff");
+// }
+
+@font-face {
+  font-family: "Bebas-neue-bold";
+  src: url("../../public/bebas-neue/BebasNeue-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Bebas-neue-Book";
+  src: url("../../public/bebas-neue/BebasNeue-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Bebas-neue-Light";
+  src: url("../../public/bebas-neue/BebasNeue-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Bebas-neue-Regular";
+  src: url("../../public/bebas-neue/BebasNeue-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Bebas-neue-Thin";
+  src: url("../../public/bebas-neue/BebasNeue-Thin.otf") format("opentype");
+}
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+// @font-face {
+//   font-family: "san-francisco-regular";
+//   src: url("../../public/san-francisco/SFUIDisplay-Ultralight-1.ttf") format("ttf");
+// }
+// @font-face {
+//   font-family: "san-francisco-medium";
+//   src: url("../../public/san-francisco/SFPRODISPLAYREGULAR-2.ttf") format("ttf");
+// }
+// @font-face {
+//   font-family: "san-francisco-semi-bold";
+//   src: url("../../public/san-francisco/SFUIDisplay-Bold.ttf") format("otf");
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bebas-neue-bold", sans-serif;
+}
+
+html {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+img {
+  display: block;
+}
+body {
+  background: $Black-color;
+  // &::before {
+  //   content: "";
+  //   background: url(https://ik.imagekit.io/xanalia/Images/HighresScreenshot.png) no-repeat center;
+  //   background-size: cover;
+  //   height: 100%;
+  //   width: 100%;
+  //   display: block;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   background-size: cover;
+  //   background-attachment: fixed;
+  //   z-index: -1;
+  // }
+  // > div {
+  //   z-index: 2;
+  //   position: relative;
+  //   min-height: 100vh;
+  // }
+}
+
+body::-webkit-scrollbar {
+  width: 7px;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  width: 7px;
+  background-color: $Primary-color;
+  border-radius: 10px;
+}

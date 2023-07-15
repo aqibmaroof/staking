@@ -1,0 +1,44 @@
+@mixin border-radius($border-rad) {
+  border-radius: $border-rad;
+}
+
+// Responsive Breakpoints
+
+@mixin Breakpoint ($breakpoint){
+
+  @if($breakpoint == xxl){
+    @media (max-width:1665px){
+      @content;
+    }
+  }
+
+  @if($breakpoint == xl){
+    @media (max-width:1365px){
+      @content;
+    }
+  }
+
+  @if($breakpoint == lg){
+    @media (max-width:1199px){
+      @content;
+    }
+  }
+
+  @if($breakpoint == md){
+    @media (max-width:991px){
+      @content;
+    }
+  }
+
+  @if($breakpoint == sm){
+    @media (max-width:767px){
+      @content;
+    }
+  }
+
+  @if($breakpoint == xs){
+    @media (max-width:575px){
+      @content;
+    }
+  }
+}

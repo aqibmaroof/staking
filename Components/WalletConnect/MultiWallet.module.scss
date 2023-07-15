@@ -1,0 +1,485 @@
+@import "../../src/Styles/Variables";
+@import "../../src/Styles/Mixins";
+.modal {
+  overflow: hidden;
+  padding: 0 !important;
+  .modal-dialog {
+    max-width: 587px;
+    height: 100%;
+    margin: 0 auto;
+
+    @media (max-width: 1665px) {
+      max-width: 600px;
+    }
+    @media (max-width: 991px) {
+      max-width: 325px;
+    }
+    @media (max-width: 575px) {
+      max-width: 280px;
+    }
+    .modal-content {
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include border-radius(10px);
+      border: none;
+      @media (max-width: 991px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .modal-body {
+        padding: 0;
+        .modal-body-inner {
+          .box-wrapper {
+            display: inline-block;
+            width: 50%;
+            .box {
+              text-align: center;
+              width: 100%;
+              padding: 15px;
+              border-radius: 0;
+              cursor: pointer;
+              margin: 0;
+              display: inline-block;
+              transition: all ease 0.3s;
+              gap: 12px;
+              justify-content: center;
+
+              .box-inner {
+                @include border-radius(5px);
+                padding: 25px 15px;
+                transition: all ease-in 0.4s;
+                margin: auto;
+
+                @media (max-width: 575px) {
+                  padding: 35px 0;
+                }
+
+                .box-image {
+                  width: 70px;
+                  height: 70px;
+                  margin: auto;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 105%;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                  }
+                  @media (max-width: 575px) {
+                    width: 42px;
+                    height: 42px;
+                  }
+                }
+                &:hover {
+                  background-color: $Primary-color;
+                }
+                .modal-title {
+                  margin: 8px 0;
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: 24px;
+                  line-height: 27px;
+                  font-weight: 700;
+                  color: $Black-color;
+                  @media (max-width: 1665px) {
+                    font-size: 18px;
+                    line-height: 22px;
+                    margin: 0;
+                  }
+                }
+                &:hover .modal-title {
+                  color: $White-color;
+                }
+                .box-description {
+                  font-size: 18px;
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-weight: 400;
+                  line-height: 20px;
+                  margin-bottom: 0;
+                  color: $Primary-color;
+                  @media (max-width: 1665px) {
+                    font-size: 14px;
+                    line-height: 18px;
+                  }
+                }
+                &:hover .box-description {
+                  color: $White-color;
+                }
+              }
+
+              @media (max-width: 575px) {
+                width: 100%;
+                padding: 7px;
+                &:first-of-type {
+                  border-bottom: 1px solid #dfdfdf;
+                }
+              }
+            }
+            @media (max-width: 991px) {
+              width: 100%;
+            }
+          }
+          @media (max-width: 991px) {
+            & > .box-wrapper:first-child {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .switch-box-inner {
+    max-width: 600px;
+    @include border-radius(5px);
+    padding: 25px 15px;
+    transition: all ease-in 0.4s;
+    border: 1px solid #2280e1;
+
+    @media (max-width: 575px) {
+      padding: 35px 0;
+    }
+
+    &:hover {
+      background-color: #2280e1;
+    }
+
+    &:hover h5.false {
+      color: #fff;
+    }
+
+    h5.false {
+      color: #23262f;
+    }
+    .box-image {
+      width: 96px;
+      height: 50px;
+      margin: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      @media (max-width: 575px) {
+        width: 42px;
+        height: 42px;
+      }
+    }
+    .modal-title {
+      margin: 8px 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 27px;
+      font-weight: 700;
+      color: white;
+      @media (max-width: 1665px) {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0;
+      }
+    }
+    &:hover .modal-title {
+      color: $White-color;
+    }
+    .box-description {
+      font-size: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      line-height: 20px;
+      margin-bottom: 0;
+      color: $Primary-color;
+      @media (max-width: 1665px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+    &:hover .box-description {
+      color: $White-color;
+    }
+  }
+  .selected-box-inner {
+    max-width: 600px;
+    border-radius: 5px;
+    padding: 25px 15px;
+    transition: all ease-in 0.4s;
+    border: 1px solid #2280e1;
+
+    .text-white {
+      color: #23262f !important;
+    }
+
+    @media (max-width: 575px) {
+      padding: 35px 0;
+    }
+    &:hover {
+      background-color: #2280e1;
+    }
+
+    &:hover .text-white {
+      color: #fff !important;
+    }
+
+    .box-image {
+      width: 96px;
+      height: 50px;
+      margin: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      @media (max-width: 575px) {
+        width: 42px;
+        height: 42px;
+      }
+    }
+    .modal-title {
+      margin: 8px 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 27px;
+      font-weight: 700;
+      color: white;
+      @media (max-width: 1665px) {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0;
+      }
+    }
+    &:hover .modal-title {
+      color: $White-color;
+    }
+    .box-description {
+      font-size: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      line-height: 20px;
+      margin-bottom: 0;
+      color: $Primary-color;
+      @media (max-width: 1665px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+    &:hover .box-description {
+      color: $White-color;
+    }
+  }
+  &.switch-net {
+    .modal-dialog {
+      max-width: 280px;
+
+      @media (max-width: 1665px) {
+        max-width: 400px;
+      }
+      @media (max-width: 1365px) {
+        max-width: 370px;
+      }
+      @media (max-width: 991px) {
+        max-width: 350px;
+      }
+      @media (max-width: 575px) {
+        max-width: 225px;
+      }
+      .modal-content {
+        .modal-body {
+          .modal-body-inner {
+            .box-wrapper {
+              padding: 15px;
+              width: 100%;
+
+              .box {
+                border-right: none;
+              }
+
+              .modal-custom-heading {
+                margin: 8px 0;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 24px;
+                line-height: 27px;
+                font-weight: 700;
+                color: $Black-color;
+                padding: 10px;
+                text-align: center;
+                @media (max-width: 1665px) {
+                  font-size: 18px;
+                  line-height: 22px;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.walletConnect-ui-modal {
+  .modal-dialog {
+    max-width: 669px;
+
+    @media (max-width: 1665px) {
+      max-width: 585px;
+    }
+    @media (max-width: 991px) {
+      max-width: 385px;
+    }
+    @media (max-width: 575px) {
+      max-width: 300px;
+    }
+
+    .modal-content .modal-body .modal-body-inner .box-wrapper .box .box-inner {
+      width: unset;
+      height: unset;
+      padding: 87px 10px;
+
+      @media (max-width: 1665px) {
+        padding: 70px 10px;
+      }
+      @media (max-width: 1365px) {
+        padding: 60px 10px;
+      }
+    }
+  }
+}
+
+.switch-net
+  .modal-dialog
+  .modal-content
+  .modal-body
+  .modal-body-inner
+  .box-wrapper
+  .box
+  .box-inner {
+  border: 1px solid #2280e1;
+}
+.switch-net
+  .modal-dialog
+  .modal-content
+  .modal-body
+  .modal-body-inner
+  .box-wrapper
+  .box
+  .box-inner:hover {
+  background-color: #56bbf8;
+  border: transparent;
+}
+
+.treasure-card-modal {
+  .modal-dialog {
+    max-width: 640px !important;
+    width: 100% !important;
+    @media (max-width: 1400px) {
+      max-width: 670px !important;
+    }
+    @media (max-width: 991px) {
+      width: 90% !important;
+      min-width: 320px;
+      max-width: 500px !important;
+    }
+
+    .modal-content {
+      padding: 70px 40px 40px;
+      border-radius: 12px;
+
+      @media (max-width: 991px) {
+        padding: 45px 22px 25px;
+        border-radius: 8px;
+      }
+
+      .modal-header {
+        padding: 0;
+        position: unset;
+
+        p.title {
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 1;
+          margin-top: 4px;
+          margin-bottom: 20px;
+          text-align: center;
+
+          @media (max-width: 991px) {
+            font-size: 25px;
+            margin-bottom: 25px;
+          }
+        }
+        .rewards {
+          margin-top: 20px;
+        }
+        .modalClosebtn {
+          background: none;
+          text-align: center;
+          border-radius: 50%;
+          position: absolute;
+          top: 18px;
+          right: 18px;
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          transform: unset;
+        }
+      }
+      .modal-body.modal-ui-body {
+        padding: 0;
+
+        p {
+          font-size: 20px;
+          line-height: 24px;
+          margin-top: 0;
+          font-weight: 400;
+          text-align: center;
+          margin-bottom: 24px;
+
+          @media (max-width: 1400px) {
+            font-size: 18px;
+          }
+          // @media (max-width:991px){
+          //  font-size: 16px;
+          // }
+        }
+
+        .btn-wrp {
+          margin-top: 0px;
+          margin-bottom: 0px;
+
+          @media (max-width: 991px) {
+            margin-top: 15px;
+            margin-bottom: 10px;
+          }
+
+          .modal-btn.btn {
+            width: 560px;
+            height: 50px;
+            font-size: 20px;
+            text-transform: capitalize;
+            border-radius: 5px;
+            background: #e800a5;
+            padding: 10px 15px;
+
+            @media (max-width: 991px) {
+              font-size: 18px;
+              width: 440px;
+              height: 50px;
+            }
+            @media (max-width: 575px) {
+              font-size: 18px;
+              width: 100%;
+              height: 50px;
+            }
+
+            &:hover {
+              background: $Primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
