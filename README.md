@@ -1,4 +1,4 @@
-# XETA
+# Staking
 
 ### Branch information
 
